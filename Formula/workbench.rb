@@ -3,8 +3,8 @@ class Workbench < Formula
 
   desc "Multi-agent orchestrator that dispatches AI coding agents in parallel"
   homepage "https://github.com/duncankmckinnon/workbench"
-  url "https://files.pythonhosted.org/packages/source/w/wbcli/wbcli-0.0.11.tar.gz"
-  sha256 "3fa50490818a7d116f80fe1bcb47688934d1e79a4749bb8158daa1ae7f59f497"
+  url "https://files.pythonhosted.org/packages/source/w/wbcli/wbcli-0.0.12rc1.tar.gz"
+  sha256 "7bfa9ed255c46e156c85a158ebceb9ed3d88ad5e0ab7795c9af965c267af05f2"
   license "MIT"
 
   depends_on "python@3.12"
