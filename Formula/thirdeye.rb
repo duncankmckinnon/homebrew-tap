@@ -3,8 +3,8 @@ class Thirdeye < Formula
 
   desc "Trace any agentic CLI to a unified local store, queryable from the CLI"
   homepage "https://github.com/duncankmckinnon/thirdeye"
-  url "https://files.pythonhosted.org/packages/source/t/thrdi/thrdi-0.0.13rc5.tar.gz"
-  sha256 "833092dd57bc29ebe059c64795838d6cbc65409d4b9736f5af37c2279bc60a66"
+  url "https://files.pythonhosted.org/packages/source/t/thrdi/thrdi-0.0.13rc6.tar.gz"
+  sha256 "2e8445a2674479737d4b727f18e4011c0ea0566e041d9f52fdc5a7430d67d830"
   license "MIT"
 
   depends_on "libyaml"
@@ -239,7 +239,18 @@ class Thirdeye < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # `virtualenv_install_with_resources`'s `pip_install` only points pip at
+    # a resource's staged file directly for a universal `py3-none-any.whl`
+    # (see Homebrew's language/python.rb); pydantic-core's arch-specific
+    # wheel doesn't match that check, so pip would instead be pointed at the
+    # staging *directory*, which has neither a wheel nor a setup.py/
+    # pyproject.toml for it to build -- "not installable". Stage and install
+    # it by hand the same way Homebrew's own universal-wheel case does.
+    venv = virtualenv_install_with_resources(without: "pydantic-core")
+    pydantic_core = resource("pydantic-core")
+    pydantic_core.stage do
+      venv.pip_install Pathname.pwd/pydantic_core.downloader.basename
+    end
   end
 
   test do
