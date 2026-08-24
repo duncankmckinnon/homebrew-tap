@@ -3,8 +3,8 @@ class Thirdeye < Formula
 
   desc "Trace any agentic CLI to a unified local store, queryable from the CLI"
   homepage "https://github.com/duncankmckinnon/thirdeye"
-  url "https://files.pythonhosted.org/packages/source/t/thrdi/thrdi-0.0.13rc4.tar.gz"
-  sha256 "678f6d59f3b08c35e70d4de6e8a88de4554419ec6bc5c09098bd98d76afbcd63"
+  url "https://files.pythonhosted.org/packages/source/t/thrdi/thrdi-0.0.13rc5.tar.gz"
+  sha256 "833092dd57bc29ebe059c64795838d6cbc65409d4b9736f5af37c2279bc60a66"
   license "MIT"
 
   depends_on "libyaml"
@@ -40,9 +40,14 @@ class Thirdeye < Formula
     sha256 "3632cc370565f6648cc328b32435bd120a1e4ebb20c77e3fdde9a13cd1e533c4"
   end
 
+  # genai-prices' sdist declares uv_build (and, transitively, maturin) as its
+  # build backend, neither of which can be built inside Homebrew's
+  # network-sandboxed install -- same class of problem as pydantic-core
+  # below, so this pins the prebuilt wheel instead. Unlike pydantic-core it's
+  # pure Python, so one universal wheel covers every arch.
   resource "genai-prices" do
-    url "https://files.pythonhosted.org/packages/1e/e3/23f4be7d5626878a6297c728f5f8db83bd9b135da481935d4c1bb82efc21/genai_prices-0.1.4.tar.gz"
-    sha256 "f3b8a0bf0c21b01f5af3ca42babcab2f17728bf3c602f87f42b72d1d2bf61d98"
+    url "https://files.pythonhosted.org/packages/e6/54/911961e926a4c4ea30bf1fa0bf9d8ffc5c9ac5ed6a3f77b3d9e0ab5bb9a5/genai_prices-0.1.4-py3-none-any.whl"
+    sha256 "1d1b01cc7ab1adfa17c3a1121f4c13990bd0a4377640ecd37ebfde5836768240"
   end
 
   resource "googleapis-common-protos" do
