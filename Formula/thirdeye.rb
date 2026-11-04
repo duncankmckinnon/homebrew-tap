@@ -3,8 +3,8 @@ class Thirdeye < Formula
 
   desc "Trace any agentic CLI to a unified local store, queryable from the CLI"
   homepage "https://github.com/duncankmckinnon/thirdeye"
-  url "https://files.pythonhosted.org/packages/source/t/thrdi/thrdi-0.2.7.tar.gz"
-  sha256 "00aa6f80ab15c5fcba03e86ae0178aa26e255bf14e69308e452d96a33fc1a4e1"
+  url "https://files.pythonhosted.org/packages/source/t/thrdi/thrdi-0.2.8.tar.gz"
+  sha256 "e00b74d5840858952524f59d6ec3a0a66cb5e1567655cf855defd52e7b1f17a5"
   license "MIT"
 
   depends_on "libyaml"
