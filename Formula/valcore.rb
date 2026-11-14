@@ -1,8 +1,8 @@
 class Valcore < Formula
   desc "Develop, improve, and run agentic evaluations locally"
   homepage "https://github.com/duncankmckinnon/valcore"
-  url "https://files.pythonhosted.org/packages/source/v/valcore/valcore-0.2.7.tar.gz"
-  sha256 "2957163456990df6faf14ce8f5df4bf6c5fa88e3538ce94680807ff9e8be05cd"
+  url "https://files.pythonhosted.org/packages/source/v/valcore/valcore-0.2.8.tar.gz"
+  sha256 "0cee853da53d23c859c1d008f31bc995beab18d19e459c991150a960594d1b10"
   license "Apache-2.0"
 
   depends_on "uv"
